@@ -2,9 +2,9 @@ steps:
   - id: "Fazendo os testes unitários"
     name: gcr.io/cloud-builders/go
     args: ["test"]
-    env: ["GOPATH=."]
+    env: ["GOPATH=/home/app/go/main"]
 
   - id: "Compilando"
     name: gcr.io/cloud-builders/go
     args: ["build"]
-    env: ["GOPATH=."]
+    env: ["GOPATH=/home/app/go/main"]
