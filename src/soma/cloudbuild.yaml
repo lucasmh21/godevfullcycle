@@ -7,7 +7,7 @@ steps:
     args: ["build", "./src/soma/main"]
   - id: "Gerando o container"
     name: gcr.io/cloud-builders/docker
-    args: ["build","-t","gcr.io/codeeducation-hirao/gosoma:0.0.1","src/soma/"]
+    args: ["build","-t","gcr.io/codeeducation-hirao/gosoma:0.0.1","-t","gcr.io/codeeducation-hirao/gosoma:latest","src/soma/"]
 images:
   - 'gcr.io/$PROJECT_ID/gosoma:latest'
   - 'gcr.io/$PROJECT_ID/gosoma:0.0.1'
