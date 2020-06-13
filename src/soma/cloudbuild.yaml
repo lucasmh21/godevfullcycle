@@ -1,13 +1,12 @@
 steps:
-  - id: "Gerando o container"
-    name: gcr.io/cloud-builders/docker
-    args: ["build","src/soma/"]
   - id: "Fazendo os testes unitários"
     name: gcr.io/cloud-builders/go
-    args: ["test"]
-    env: ["GOPATH=src/soma/main"]
-
+    args: ["test", "./src/soma/main"]
   - id: "Compilando"
     name: gcr.io/cloud-builders/go
-    args: ["build"]
-    env: ["GOPATH=src/soma/main"]
+    args: ["build", "./src/soma/main"]
+  - id: "Gerando o container"
+    name: gcr.io/cloud-builders/docker
+    args: ["build","-t","gosoma","src/soma/"]
+images:
+  - 'gcr.io/$PROJECT_ID/gosoma:latest'
