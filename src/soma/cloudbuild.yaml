@@ -1,7 +1,7 @@
 steps:
   - id: "Gerando o container"
     name: gcr.io/cloud-builders/docker
-    args: ["build","."]
+    args: ["build","src/soma/"]
   - id: "Fazendo os testes unitários"
     name: gcr.io/cloud-builders/go
     args: ["test"]
