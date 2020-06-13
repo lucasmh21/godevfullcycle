@@ -3,10 +3,12 @@ substitutions:
 steps:
   - id: "Fazendo os testes unitários"
     name: gcr.io/cloud-builders/go
-    args: ["test", "./src/soma/main"]
+    args: ["test"]
+    env: ["GOPATH=./src/soma/main"]
   - id: "Compilando"
     name: gcr.io/cloud-builders/go
-    args: ["build", "./src/soma/main"]
+    args: ["build"]
+    env: ["GOPATH=./src/soma/main"]
   - id: "Gerando o container"
     name: gcr.io/cloud-builders/docker
     args: ["build","-t","gcr.io/codeeducation-hirao/gosoma:${_GOSOMA_VERSION}","-t","gcr.io/codeeducation-hirao/gosoma:latest","src/soma/"]
